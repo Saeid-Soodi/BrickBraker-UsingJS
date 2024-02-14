@@ -165,7 +165,7 @@ function detectCollision(a, b) {
     a.y + a.height > b.y
   )
 }
-
+// Detect Ball and Block Functions
 function topCollision(ball, block) {
   //a is above b (ball above block)
   return detectCollision(ball, block) && ball.y + ball.height >= block.y
@@ -183,6 +183,7 @@ function rightCollison(ball, block) {
   return detectCollision(ball, block) && block.x + block.width >= ball.x
 }
 
+// Block Creation Function
 function createBlocks() {
   blockArray = [] //cleaer block array
   for (let c = 0; c < blockCol; c++) {
@@ -200,6 +201,7 @@ function createBlocks() {
   blockCount = blockArray.length
 }
 
+// Reset Function
 function resetGame() {
   gameOver = false
 
