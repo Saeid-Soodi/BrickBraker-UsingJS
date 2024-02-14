@@ -46,7 +46,7 @@ let blockY = 45
 
 //Score
 let score = 0
-let gameOver =false
+let gameOver = false
 
 // Functions
 window.onload = function () {
@@ -68,7 +68,7 @@ window.onload = function () {
 
 function update() {
   requestAnimationFrame(update)
-  if(gameOver) return
+  if (gameOver) return
 
   context.clearRect(0, 0, board.width, board.height)
   //player
@@ -90,6 +90,10 @@ function update() {
   } else if (Ball.y + Ball.height >= boardHeight) {
     //if ball touches bottom of canvas
     //Game Over
+    context.fillStyle = 'green'
+    context.font = '20px sans-serif'
+    context.fillText(`Score:${score}`, 200, 350)
+    context.fillText(" Game Over: Press 'Space' to Restart", 80, 400)
   }
   //bounce the ball of paddle
   if (topCollision(Ball, player) || bottomCollision(Ball, player)) {
@@ -116,8 +120,8 @@ function update() {
       context.fillRect(block.x, block.y, block.width, block.height)
     }
   }
-  context.font="20px sans-serif"
-  context.fillText(score,10,25)
+  context.font = '20px sans-serif'
+  context.fillText(score, 10, 25)
 }
 
 function outOfBounds(xPosition) {
