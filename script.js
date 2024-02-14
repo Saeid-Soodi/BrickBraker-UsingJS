@@ -94,6 +94,7 @@ function update() {
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Space' to Restart", 80, 400)
+    gameOver = true
   }
   //bounce the ball of paddle
   if (topCollision(Ball, player) || bottomCollision(Ball, player)) {
@@ -129,6 +130,12 @@ function outOfBounds(xPosition) {
 }
 
 function movePlayer(e) {
+  if (gameOver) {
+    if (e.code == 'Space') {
+      resetGame()
+    }
+  }
+
   if (e.code == 'ArrowLeft') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
@@ -184,4 +191,29 @@ function createBlocks() {
     }
   }
   blockCount = blockArray.length
+}
+
+function resetGame() {
+  gameOver = false
+
+   player = {
+    x: boardWidth / 2 - playerWidth / 2,
+    y: boardHeight - playerHeight - 5,
+    width: playerWidth,
+    height: playerHeight,
+    velocityX: playerVelocityX,
+  }
+   Ball = {
+    x: boardWidth / 2,
+    y: boardHeight / 2,
+    width: ballWidth,
+    height: ballHeight,
+    velocityX: BallVelocityX,
+    vlocityY: BallVelocityY,
+  }
+
+  blockArray=[]
+  score=0
+  createBlocks()
+  
 }
