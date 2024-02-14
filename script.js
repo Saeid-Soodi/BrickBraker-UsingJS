@@ -152,8 +152,8 @@ function createBlocks() {
   for (let c = 0; c < blockCol; c++) {
     for (let r = 0; r < blockRow; r++) {
       let block = {
-        x: blockX + c * blockWidth + c * 10,
-        y: blockY + r * blockHeight + r * 20,
+        x: blockX +(c * blockWidth) + (c * 10),
+        y: blockY +(r * blockHeight) + (r * 20),
         width: blockWidth,
         height: blockHeight,
         break: false,
