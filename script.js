@@ -48,8 +48,15 @@ let blockY = 45
 let score = 0
 let gameOver = false
 
+//Next Level
+if (blockCount == 0) {
+  score += 100 * blockRow * blockCol
+  blockRow = Math.min(blockRow + 1, blockMaxRow)
+  createBlocks()
+}
 // Functions
 window.onload = function () {
+  confirm('Ready to play?')
   board = document.getElementById('board')
   board.height = boardHeight
   board.width = boardWidth
@@ -196,14 +203,14 @@ function createBlocks() {
 function resetGame() {
   gameOver = false
 
-   player = {
+  player = {
     x: boardWidth / 2 - playerWidth / 2,
     y: boardHeight - playerHeight - 5,
     width: playerWidth,
     height: playerHeight,
     velocityX: playerVelocityX,
   }
-   Ball = {
+  Ball = {
     x: boardWidth / 2,
     y: boardHeight / 2,
     width: ballWidth,
@@ -212,9 +219,8 @@ function resetGame() {
     vlocityY: BallVelocityY,
   }
 
-  blockArray=[]
-  score=0
-  blockRow=3
+  blockArray = []
+  score = 0
+  blockRow = 3
   createBlocks()
-  
 }
