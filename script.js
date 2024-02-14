@@ -44,6 +44,9 @@ let blockCount = 0
 let blockX = 15
 let blockY = 45
 
+//Score
+let score = 0
+
 // Functions
 window.onload = function () {
   board = document.getElementById('board')
@@ -97,20 +100,22 @@ function update() {
   for (let i = 0; i < blockArray.length; i++) {
     let block = blockArray[i]
     if (!block.break) {
-
-      if(topCollision(Ball,block)||bottomCollision(Ball,block)){
-        block.break=true
-        Ball.vlocityY*=-1 //flip y diraction to up or down
-        blockCount-=1
-      }
-      else if(leftCollision(Ball,block)||rightCollison(Ball,block)){
-        block.break=true
-        Ball.velocityX*=-1 //flip x diraction to left or right
-        blockCount-=1
+      if (topCollision(Ball, block) || bottomCollision(Ball, block)) {
+        block.break = true
+        Ball.vlocityY *= -1 //flip y diraction to up or down
+        blockCount -= 1
+        score += 100
+      } else if (leftCollision(Ball, block) || rightCollison(Ball, block)) {
+        block.break = true
+        Ball.velocityX *= -1 //flip x diraction to left or right
+        blockCount -= 1
+        score += 100
       }
       context.fillRect(block.x, block.y, block.width, block.height)
     }
   }
+  context.font="20px sans-serif"
+  context.fillText(score,10,25)
 }
 
 function outOfBounds(xPosition) {
@@ -163,8 +168,8 @@ function createBlocks() {
   for (let c = 0; c < blockCol; c++) {
     for (let r = 0; r < blockRow; r++) {
       let block = {
-        x: blockX +(c * blockWidth) + (c * 10),
-        y: blockY +(r * blockHeight) + (r * 20),
+        x: blockX + c * blockWidth + c * 10,
+        y: blockY + r * blockHeight + r * 20,
         width: blockWidth,
         height: blockHeight,
         break: false,
