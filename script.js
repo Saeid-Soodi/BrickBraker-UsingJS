@@ -1,5 +1,4 @@
 //Board
-
 let board
 let boardWidth = 500
 let boardHeight = 500
@@ -10,6 +9,7 @@ let playerWidth = 80
 let playerHeight = 10
 let playerVelocityX = 10
 
+// player JSON
 let player = {
   x: boardWidth / 2 - playerWidth / 2,
   y: boardHeight - playerHeight - 5,
@@ -17,13 +17,27 @@ let player = {
   height: playerHeight,
   velocityX: playerVelocityX,
 }
+// Ball
+let ballWidth=10;
+let ballHeight =10;
+let BallVelocityX=3;
+let BallVelocityY=2;
 
+let Ball={
+x:boardWidth/2,
+y:boardHeight/2,
+width:ballWidth,
+height:ballHeight,
+velocityX:BallVelocityX,
+vlocityY:BallVelocityY
+}
+// Functions
 window.onload = function () {
   board = document.getElementById('board')
   board.height = boardHeight
   board.width = boardWidth
-  context = board.getContext('2d') //used for drawing on the board
-
+  //used for drawing on the board
+  context = board.getContext('2d') 
   //draw inital player
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
@@ -39,13 +53,19 @@ function update() {
   //player
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
+
+  context.fillStyle ="red";
+  Ball.x+=Ball.velocityX;
+  Ball.y+=Ball.vlocityY;
+  context.fillRect(Ball.x,Ball.y,Ball.width,Ball.height)
 }
 
 function outOfBounds(xPosition) {
-  return xPosition < 0 || xPosition + playerWidth > boardWidth
+  return (xPosition < 0 || xPosition + playerWidth > boardWidth)
 }
 
 function movePlayer(e) {
+  
   if (e.code == 'ArrowLeft') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
