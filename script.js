@@ -46,6 +46,7 @@ let blockY = 45
 
 //Score
 let score = 0
+let gameOver =false
 
 // Functions
 window.onload = function () {
@@ -67,8 +68,9 @@ window.onload = function () {
 
 function update() {
   requestAnimationFrame(update)
-  context.clearRect(0, 0, board.width, board.height)
+  if(gameOver) return
 
+  context.clearRect(0, 0, board.width, board.height)
   //player
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
