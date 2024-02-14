@@ -31,6 +31,19 @@ let Ball = {
   velocityX: BallVelocityX,
   vlocityY: BallVelocityY,
 }
+
+// Blocks
+let blockArray = []
+let blockWidth = 50
+let blockHeight = 10
+let blockCol = 8
+let blockRow = 3
+let blockMaxRow = 10
+let blockCount = 0
+// Starting block corner top left
+let blockX = 15
+let blockY = 45
+
 // Functions
 window.onload = function () {
   board = document.getElementById('board')
@@ -44,6 +57,9 @@ window.onload = function () {
 
   requestAnimationFrame(update)
   document.addEventListener('keydown', movePlayer)
+
+  //create blocks
+  createBlocks()
 }
 
 function update() {
@@ -66,16 +82,23 @@ function update() {
   } else if (Ball.x <= 0 || Ball.x + Ball.width >= boardWidth) {
     //Left or Right of Canvas
     Ball.velocityX *= -1
-  } else if (Ball.y + Ball.height >= boardHeight);
-  //if ball touches bottom of canvas
-  //Game Over
-
+  } else if (Ball.y + Ball.height >= boardHeight) {
+    //if ball touches bottom of canvas
+    //Game Over
+  }
   //bounce the ball of paddle
   if (topCollision(Ball, player) || bottomCollision(Ball, player)) {
     Ball.vlocityY *= -1 //flip y Direction up or down
+  } else if (leftCollision(Ball, player) || rightCollison(Ball, player)) {
+    Ball.velocityX *= -1
   }
-  else if (leftCollision(Ball,player)||rightCollison(Ball,player)){
-    Ball.velocityX*=-1;
+  // Blocks
+  context.fillStyle="skyblue"
+  for(let i=0;i<blockArray.length;i++){
+    let block =blockArray[i]
+    if(!block.break){
+      context.fillRect(block.x,block.y,block.width,block.height)
+    }
   }
 }
 
@@ -122,4 +145,21 @@ function leftCollision(ball, block) {
 
 function rightCollison(ball, block) {
   return detectCollision(ball, block) && block.x + block.width >= ball.x
+}
+
+function createBlocks() {
+  blockArray = [] //cleaer block array
+  for(let c= 0;c<blockCol;c++){
+    for(let r=0;r<blockRow;r++){
+      let block ={
+        x:blockX+c*blockWidth,
+        y:blockY+r*blockHeight,
+        width:blockWidth,
+        height:blockHeight,
+        break:false
+      }
+      blockArray.push(block)
+    }
+  }
+  blockCount=blockArray.length;
 }
