@@ -57,7 +57,23 @@ function update() {
   context.fillStyle ="red";
   Ball.x+=Ball.velocityX;
   Ball.y+=Ball.vlocityY;
-  context.fillRect(Ball.x,Ball.y,Ball.width,Ball.height)
+  context.fillRect(Ball.x,Ball.y,Ball.width,Ball.height);
+
+  // bounce ball off walls
+  if(Ball.y<=0){
+     // Top Of Canvas
+  Ball.vlocityY*=-1;
+  }
+
+else if(Ball.x<=0||(Ball.x+Ball.width)>=boardWidth){
+  //Left or Right of Canvas
+Ball.velocityX*=-1;
+}
+
+else if(Ball.y+Ball.height>=boardHeight);
+//if ball touches bottom of canvas
+//Game Over
+
 }
 
 function outOfBounds(xPosition) {
@@ -65,7 +81,7 @@ function outOfBounds(xPosition) {
 }
 
 function movePlayer(e) {
-  
+
   if (e.code == 'ArrowLeft') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
