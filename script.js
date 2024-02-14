@@ -214,6 +214,7 @@ function resetGame() {
 
   blockArray=[]
   score=0
+  blockRow=3
   createBlocks()
   
 }
