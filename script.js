@@ -93,11 +93,11 @@ function update() {
     Ball.velocityX *= -1
   }
   // Blocks
-  context.fillStyle="skyblue"
-  for(let i=0;i<blockArray.length;i++){
-    let block =blockArray[i]
-    if(!block.break){
-      context.fillRect(block.x,block.y,block.width,block.height)
+  context.fillStyle = 'skyblue'
+  for (let i = 0; i < blockArray.length; i++) {
+    let block = blockArray[i]
+    if (!block.break) {
+      context.fillRect(block.x, block.y, block.width, block.height)
     }
   }
 }
@@ -149,17 +149,17 @@ function rightCollison(ball, block) {
 
 function createBlocks() {
   blockArray = [] //cleaer block array
-  for(let c= 0;c<blockCol;c++){
-    for(let r=0;r<blockRow;r++){
-      let block ={
-        x:blockX+c*blockWidth,
-        y:blockY+r*blockHeight,
-        width:blockWidth,
-        height:blockHeight,
-        break:false
+  for (let c = 0; c < blockCol; c++) {
+    for (let r = 0; r < blockRow; r++) {
+      let block = {
+        x: blockX + c * blockWidth + c * 10,
+        y: blockY + r * blockHeight + r * 20,
+        width: blockWidth,
+        height: blockHeight,
+        break: false,
       }
       blockArray.push(block)
     }
   }
-  blockCount=blockArray.length;
+  blockCount = blockArray.length
 }
