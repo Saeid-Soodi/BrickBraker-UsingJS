@@ -97,6 +97,17 @@ function update() {
   for (let i = 0; i < blockArray.length; i++) {
     let block = blockArray[i]
     if (!block.break) {
+
+      if(topCollision(Ball,block)||bottomCollision(Ball,block)){
+        block.break=true
+        Ball.vlocityY*=-1 //flip y diraction to up or down
+        blockCount-=1
+      }
+      else if(leftCollision(Ball,block)||rightCollison(Ball,block)){
+        block.break=true
+        Ball.velocityX*=-1 //flip x diraction to left or right
+        blockCount-=1
+      }
       context.fillRect(block.x, block.y, block.width, block.height)
     }
   }
