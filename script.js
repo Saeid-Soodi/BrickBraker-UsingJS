@@ -18,18 +18,18 @@ let player = {
   velocityX: playerVelocityX,
 }
 // Ball
-let ballWidth=10;
-let ballHeight =10;
-let BallVelocityX=3;
-let BallVelocityY=2;
+let ballWidth = 10
+let ballHeight = 10
+let BallVelocityX = 3
+let BallVelocityY = 2
 
-let Ball={
-x:boardWidth/2,
-y:boardHeight/2,
-width:ballWidth,
-height:ballHeight,
-velocityX:BallVelocityX,
-vlocityY:BallVelocityY
+let Ball = {
+  x: boardWidth / 2,
+  y: boardHeight / 2,
+  width: ballWidth,
+  height: ballHeight,
+  velocityX: BallVelocityX,
+  vlocityY: BallVelocityY,
 }
 // Functions
 window.onload = function () {
@@ -37,7 +37,7 @@ window.onload = function () {
   board.height = boardHeight
   board.width = boardWidth
   //used for drawing on the board
-  context = board.getContext('2d') 
+  context = board.getContext('2d')
   //draw inital player
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
@@ -54,34 +54,28 @@ function update() {
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
 
-  context.fillStyle ="red";
-  Ball.x+=Ball.velocityX;
-  Ball.y+=Ball.vlocityY;
-  context.fillRect(Ball.x,Ball.y,Ball.width,Ball.height);
+  context.fillStyle = 'red'
+  Ball.x += Ball.velocityX
+  Ball.y += Ball.vlocityY
+  context.fillRect(Ball.x, Ball.y, Ball.width, Ball.height)
 
   // bounce ball off walls
-  if(Ball.y<=0){
-     // Top Of Canvas
-  Ball.vlocityY*=-1;
-  }
-
-else if(Ball.x<=0||(Ball.x+Ball.width)>=boardWidth){
-  //Left or Right of Canvas
-Ball.velocityX*=-1;
-}
-
-else if(Ball.y+Ball.height>=boardHeight);
-//if ball touches bottom of canvas
-//Game Over
-
+  if (Ball.y <= 0) {
+    // Top Of Canvas
+    Ball.vlocityY *= -1
+  } else if (Ball.x <= 0 || Ball.x + Ball.width >= boardWidth) {
+    //Left or Right of Canvas
+    Ball.velocityX *= -1
+  } else if (Ball.y + Ball.height >= boardHeight);
+  //if ball touches bottom of canvas
+  //Game Over
 }
 
 function outOfBounds(xPosition) {
-  return (xPosition < 0 || xPosition + playerWidth > boardWidth)
+  return xPosition < 0 || xPosition + playerWidth > boardWidth
 }
 
 function movePlayer(e) {
-
   if (e.code == 'ArrowLeft') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
@@ -96,3 +90,15 @@ function movePlayer(e) {
     }
   }
 }
+function detectCollision(a, b)
+ {
+  return a.x < b.x + b.width &&
+         a.x+a.width>b.x&&
+         a.y<b.y+b.height &&
+         a.y+a.height>b.y
+ }
+
+ function topCollision(ball,block){
+  //a is above b (ball above block)
+  return detectCollision(ball ,block) && (ball.y+ball.height)>=block.y;
+ }
