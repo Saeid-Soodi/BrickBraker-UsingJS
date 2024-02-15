@@ -1,5 +1,5 @@
 //Board
-let board
+let board1
 let boardWidth = 500
 let boardHeight = 500
 let context
@@ -49,11 +49,11 @@ let score = 0
 let gameOver = false
 
 //Next Level
-if (blockCount == 0) {
-  score += 100 * blockRow * blockCol
-  blockRow = Math.min(blockRow + 1, blockMaxRow)
-  createBlocks()
-}
+// if (blockCount == 0) {
+//   score += 100 * blockRow * blockCol
+//   blockRow = Math.min(blockRow + 1, blockMaxRow)
+//   createBlocks()
+// }
 // Functions
 window.onload = function () {
   confirm('Ready to play?')
