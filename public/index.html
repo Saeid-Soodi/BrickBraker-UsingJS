@@ -3,31 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brick Braker | Home</title>
+    <title>Brick Breaker | Home</title>
     <link rel="stylesheet" href="../public/dist/styles/index.css" />
   </head>
-  <body class="bg-slate-900">
+  <body class="bg-slate-900 flex flex-col">
     <header class="bg-slate-800 w-1440px">
       <nav class="flex justify-center gap-52 items-center p-1">
-        <button class="text-white font-semibold hover:text-red-500">Login</button>
+        <button class="text-white font-semibold hover:text-red-500">
+          Login
+        </button>
         <ul class="flex justify-center items-center gap-24">
           <li class="hover:text-red-500 text-white font-semibold">
-            <a href="">Home</a>
+            <a href="#">Home</a>
           </li>
           <li class="hover:text-red-500 text-white font-semibold">
-            <a href="">Game</a>
+            <a href="../public/Game.html">Game</a>
           </li>
           <li class="hover:text-red-500 text-white font-semibold">
-            <a href="">About Game</a>
+            <a href="../public/About.html">About Game</a>
           </li>
           <li class="hover:text-red-500 text-white font-semibold">
-            <a href="">Contact Me</a>
+            <a href="../public/Contact.html">Contact Me</a>
           </li>
         </ul>
         <div>
-          <img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker" />
+          <a href="#"
+            ><img
+              class="w-32"
+              src="../images/BrickBraker.svg"
+              alt="BrickBraker"
+          /></a>
         </div>
       </nav>
+      <section class="flex justify-center items-center gap-80 mt-20">
+        <div class="heroText flex flex-col">
+          <h1 class="text-6xl text-red-600">Brick Breaker</h1>
+          <p class="text-3xl text-white">
+            Are you ready to break all the bricks?
+          </p>
+        </div>
+        <img src="../images/breakGlass.png" alt="" />
+      </section>
     </header>
+
+    <main></main>
   </body>
 </html>
