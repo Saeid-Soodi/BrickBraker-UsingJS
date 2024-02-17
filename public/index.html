@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../public/dist/styles/index.css" />
   </head>
   <body class="bg-slate-900 flex flex-col">
-    <header class="bg-slate-800 w-1440px">
-      <nav class="flex justify-center gap-52 items-center p-1">
+    <header class="w-1440px">
+      <nav
+        class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1"
+      >
         <button class="text-white font-semibold hover:text-red-500">
           Login
         </button>
@@ -42,7 +44,7 @@
             Are you ready to break all the bricks?
           </p>
           <button
-            class="text-2xl mt-5 bg-red-600 text-white  font-semibold w-fit py-2 px-10 rounded-full text-left"
+            class="text-2xl mt-5 bg-red-600 text-white font-semibold w-fit py-2 px-10 rounded-full text-left"
           >
             Lets go
           </button>
@@ -50,31 +52,31 @@
         <img src="../images/breakGlass.png" alt="BrickBreaker" />
       </section>
     </header>
-    <main>
-      <section class="Tech flex flex-col mt-10 gap-10">
+    <main class="flex items-center flex-col gap-56 mt-48">
+      <section class="Tech flex flex-col mt-10 gap-20">
         <h2 class="text-center font-semibold text-white text-4xl">
           Which Technologies has been used here?
         </h2>
         <div class="flex justify-center gap-20 items-center">
-          <div class="flex flex-col">
+          <div class="flex flex-col gap-3">
             <img class="w-32" src="../images/html.svg" alt="html" />
             <span class="text-center font-semibold text-white text-2xl"
               >HTML</span
             >
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col gap-3">
             <img class="w-32" src="../images/css.svg" alt="css" />
             <span class="text-center font-semibold text-white text-2xl"
               >CSS</span
             >
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col gap-3">
             <img class="w-32" src="../images/javascript.svg" alt="javascript" />
             <span class="text-center font-semibold text-white text-2xl"
               >JavaScript</span
             >
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col gap-16">
             <img
               class="w-32"
               src="../images/tailwindcss.svg"
@@ -84,6 +86,27 @@
               >Tailwind</span
             >
           </div>
+        </div>
+      </section>
+      <section class="author flex justify-center items-center">
+        <div class="me w-2/5">
+          <img
+            class="w-96 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/Saeedsi_tech.png"
+            alt=""
+          />
+        </div>
+        <div class="bio flex flex-col w-2/5">
+          <h2 class="text-red-600 text-4xl font-black">
+            Saeed Soodi <span class="text-white">Front-End Developer</span>
+          </h2>
+          <p class="text-white mt-2 text-lg">
+            I'm passionate about JavaScript, and I recently created this game
+            just for fun! I began my journey into web development on April 14,
+            2023, and now I'm diving into JavaScript frameworks like React.<br />
+            🚀
+            <span class="text-blue-600"> #JavaScriptLove #WebDevJourney</span>
+          </p>
         </div>
       </section>
     </main>
