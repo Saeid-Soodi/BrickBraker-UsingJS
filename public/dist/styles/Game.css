@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(2, 2, 46);
+  text-align: center;
+  margin-top: 50px;
+}
+canvas {
+  background: #000000;
+  border-top: 10px solid red;
+  border-left: 10px solid red;
+  border-right: 10px solid red;
+}
