@@ -39,6 +39,9 @@ signUpbtn.addEventListener('click', () => {
     alert(`user! Password must be at least 8 char`)
   }
 
+  else if(Password!==confirmPassword){
+    alert('please check your password')
+  }
   else {
     localStorage.setItem('userData', userJson)
     localStorage.setItem('userLoggedIn', Name)
