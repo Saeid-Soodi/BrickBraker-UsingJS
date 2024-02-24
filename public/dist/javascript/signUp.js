@@ -31,7 +31,7 @@ signUpbtn.addEventListener('click', () => {
     Password == '' ||
     confirmPassword == ''
   )
-    alert(`you must fill all the inputs user!`)
+    alert(`you must fill all the inputs ${Name}!`)
 
     else if(Name.length <6){
       alert("Name must be 6 char or more")
@@ -43,10 +43,10 @@ signUpbtn.addEventListener('click', () => {
       alert("User Name must be 6 char or more")
      }
   else if (!isValidEmail(email)) {
-    alert(`User! please enter a valid Email Address`)
+    alert(`${Name}! please enter a valid Email Address`)
   } 
   else if(Password.length<8){
-    alert(`user! Password must be at least 8 char`)
+    alert(`${Name}! Password must be at least 8 char`)
   }
 
   else if(Password!==confirmPassword){
@@ -55,6 +55,7 @@ signUpbtn.addEventListener('click', () => {
   else {
     localStorage.setItem('userData', userJson)
     localStorage.setItem('userLoggedIn', Name)
+    alert(`Dear ${Name} your regestration completed`)
     window.location.href="./SignIn.html"
   }
 })
