@@ -34,7 +34,12 @@ signUpbtn.addEventListener('click', () => {
     alert(`you must fill all the inputs user!`)
   else if (!isValidEmail(email)) {
     alert(`User! please enter a valid Email Address`)
-  } else {
+  } 
+  else if(Password.length<8){
+    alert(`user! Password must be at least 8 char`)
+  }
+
+  else {
     localStorage.setItem('userData', userJson)
     localStorage.setItem('userLoggedIn', Name)
     window.location.href="./SignIn.html"
