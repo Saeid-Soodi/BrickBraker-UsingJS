@@ -32,6 +32,16 @@ signUpbtn.addEventListener('click', () => {
     confirmPassword == ''
   )
     alert(`you must fill all the inputs user!`)
+
+    else if(Name.length <6){
+      alert("Name must be 6 char or more")
+     }
+     else if(lastName.length <6){
+      alert("Last Name must be 6 char or more")
+     }
+     else if(userName.length <6){
+      alert("User Name must be 6 char or more")
+     }
   else if (!isValidEmail(email)) {
     alert(`User! please enter a valid Email Address`)
   } 
