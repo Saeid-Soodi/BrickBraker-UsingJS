@@ -33,10 +33,11 @@ signUpbtn.addEventListener('click', () => {
   )
     alert(`you must fill all the inputs user!`)
   else if (!isValidEmail(email)) {
-    alert(`User! lease enter a valid Email Address`)
+    alert(`User! please enter a valid Email Address`)
   } else {
     localStorage.setItem('userData', userJson)
     localStorage.setItem('userLoggedIn', Name)
+    window.location.href="./SignIn.html"
   }
 })
 
