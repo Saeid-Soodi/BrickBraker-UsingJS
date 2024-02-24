@@ -32,18 +32,18 @@ let userJson =JSON.stringify(userData)
   confirmPassword==""
   )
  alert(`you must fill all the inputs user!`)
+
+  else if(!isValidEmail(email)){
+    alert(`User! lease enter a valid Email Address`)
+  }
  else{
     localStorage.setItem('userData',userJson)
     localStorage.setItem('userLoggedIn',Name)
  }
-   
-
-  
-
-
-
-
 })
 
 // functions
-
+function isValidEmail(Email){
+  const EmailRegex =/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return EmailRegex.test(Email)
+}
