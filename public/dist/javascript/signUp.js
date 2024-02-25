@@ -48,7 +48,7 @@ signUpbtn.addEventListener('click', () => {
   else if(Password.length<8){
     alert(`${Name}! Password must be at least 8 char`)
   }
-  else if(phone.length<11){
+  else if(phone.length!=11){
     alert(`${Name}! Phone Number must be 11 char`)
   }
 
