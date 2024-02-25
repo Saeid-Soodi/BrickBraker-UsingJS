@@ -33,10 +33,10 @@ signUpbtn.addEventListener('click', () => {
   )
     alert(`you must fill all the inputs ${Name}!`)
 
-    else if(Name.length <6){
+    else if(Name.length <3){
       alert("Name must be 6 char or more")
      }
-     else if(lastName.length <6){
+     else if(lastName.length <3){
       alert("Last Name must be 6 char or more")
      }
      else if(userName.length <6){
@@ -51,7 +51,9 @@ signUpbtn.addEventListener('click', () => {
   else if(phone.length!=11){
     alert(`${Name}! Phone Number must be 11 char`)
   }
-
+  else if(!isValidPhone(phone)){
+    alert(`${Name}! phone number is not valid.`)
+  }
   else if(Password!==confirmPassword){
     alert('please check your password')
   }
@@ -69,3 +71,7 @@ function isValidEmail(Email) {
   return EmailRegex.test(Email)
 }
 
+function isValidPhone(Phone){
+  const PhoneRegex= /^09\d{9}$/
+  return PhoneRegex.test(Phone)
+}
