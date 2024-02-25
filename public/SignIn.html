@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/styles/signIn.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/styles/signIn.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body class="bg-slate-900">
     <nav
-    class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
-  >
-    <button class="text-white font-semibold hover:text-red-500">Login</button>
-    <ul class="flex justify-center items-center gap-24">
-      <li class="hover:text-red-500 text-white font-semibold">
-        <a href="../public/index.html">Home</a>
-      </li>
-      <li class="hover:text-red-500 text-white font-semibold">
-        <a href="../public/Game.html">Game</a>
-      </li>
-      <li class="hover:text-red-500 text-white font-semibold">
-        <a href="../public/About.html">About Game</a>
-      </li>
-      <li class="hover:text-red-500 text-white font-semibold">
-        <a href="../public/Contact.html">Contact Me</a>
-      </li>
-    </ul>
-    <div>
-      <a href="#"
-        ><img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker"
-      /></a>
-    </div>
-  </nav>
-
+      class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
+    >
+      <button class="text-white font-semibold hover:text-red-500">Login</button>
+      <ul class="flex justify-center items-center gap-24">
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/index.html">Home</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/Game.html">Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/About.html">About Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/Contact.html">Contact Me</a>
+        </li>
+      </ul>
+      <div>
+        <a href="#"
+          ><img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker"
+        /></a>
+      </div>
+    </nav>
+    <main
+      class="flex justify-center gap-20 items-center mx-auto mt-32 bg-zinc-800 rounded-2xl max-w-[1000px]"
+    >
+      <div class="signIn flex flex-col">
+        <h1
+          class="text-red-600 font-bold text-2xl hover:text-white hover:cursor-pointer"
+        >
+          Sign in to your account
+        </h1>
+        <input
+          type="text"
+          class="userName rounded-md outline-none border-none font-semibold mt-2 p-1"
+          placeholder="User Name or Email Address:"
+        />
+        <input
+          type="password"
+          class="password rounded-md outline-none border-none font-semibold mt-2 p-1"
+          placeholder="Password:"
+        />
+        <button
+          class="signInBtn bg-slate-500 mt-2 rounded-md hover:bg-slate-700 p-1 text-lg text-white hover:text-slate-400 outline-none border-none"
+        >
+          Sign In
+        </button>
+      </div>
+      <div class="bio">
+        <img
+          class="transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-107 duration-300 hover:cursor-pointer"
+          src="../images/signUp.png"
+          alt=""
+        />
+      </div>
+    </main>
 
     <footer
       class="bg-slate-800 w-full h-80 mt-72 rounded-t-3xl flex flex-col items-center"
@@ -90,5 +122,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>
