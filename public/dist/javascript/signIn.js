@@ -21,6 +21,6 @@ signInBtn.addEventListener('click',()=>{
             alert('Your Email or Password is incorrect')
         }
     }else{
-        alert('There is no user in storage')
+        alert('There is no user in storage with this user name ')
     }
 })
