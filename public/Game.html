@@ -5,49 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brick Braker</title>
     <link rel="stylesheet" href="../public/dist/styles/Game.css" />
-    <link rel="icon" type="image/png" href="../images/favIcon.png">
+    <link rel="icon" type="image/png" href="../images/favIcon.png" />
   </head>
   <body class="bg-slate-900">
     <nav
-        class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
+      class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
+    >
+      <button
+        class="navbarLoginBtn text-red-500 font-semibold hover:text-white"
       >
-        <button class="navbarLoginBtn text-red-500 font-semibold hover:text-white">
-          Login
-        </button>
-        <ul class="flex justify-center items-center gap-24">
-          <li class="hover:text-red-500 text-white font-semibold">
-            <a href="../public/index.htmlzx">Home</a>
-          </li>
-          <li class="game hover:text-red-500 text-white font-semibold">
-            <a href="../public/Game.html">Game</a>
-          </li>
-          <li class="hover:text-red-500 text-white font-semibold">
-            <a href="../public/About.html">About Game</a>
-          </li>
-          <li class="hover:text-red-500 text-white font-semibold">
-            <a href="../public/Contact.html">Contact Me</a>
-          </li>
-        </ul>
-        <div>
-          <a href="#"
-            ><img
-              class="w-32"
-              src="../images/BrickBraker.svg"
-              alt="BrickBraker"
-          /></a>
+        Login
+      </button>
+      <ul class="flex justify-center items-center gap-24">
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/index.htmlzx">Home</a>
+        </li>
+        <li class="game hover:text-red-500 text-white font-semibold">
+          <a href="../public/Game.html">Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/About.html">About Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/Contact.html">Contact Me</a>
+        </li>
+      </ul>
+      <div>
+        <a href="#"
+          ><img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker"
+        /></a>
+      </div>
+    </nav>
+    <main class="flex flex-col justify-center items-center">
+      <section class="game">
+        <canvas
+          class="bg-gray-700 rounded-lg mx-auto mt-32 border-t-4 border-l-4 border-r-4 border-gray-500"
+          id="board"
+        ></canvas>
+      </section>
+      <section class="highscores mt-20">
+        <h1
+          class="text-white font-bold text-4xl hover:text-red-600 hover:cursor-pointer"
+        >
+          Highscores
+        </h1>
+        <div
+          class="title flex text-white text-2xl gap-96 mt-5 border-t-2 font-semibold hover:text-red-600 hover:cursor-pointer"
+        >
+          <p class="left">Username</p>
+          <p class="right">Score</p>
         </div>
-      </nav>
-  <main>
-    <section class="game">
-      <canvas
-      class="bg-gray-700 rounded-lg mx-auto mt-32 border-t-4 border-l-4 border-r-4 border-gray-500"
-      id="board"
-    ></canvas>
-    </section>
-    <section class="highscores">
-      
-    </section>
-  </main>
+        <div class="item">
+          <p class="userName"></p>
+          <p class="Score"></p>
+        </div>
+      </section>
+    </main>
 
     <footer
       class="bg-slate-800 w-full h-80 mt-72 rounded-t-3xl flex flex-col items-center"
