@@ -100,7 +100,7 @@ function update() {
     context.fillStyle = 'black'
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
-    context.fillText(" Game Over: Press 'Space' to Restart", 80, 400)
+    context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
     gameOver = true
   }
   //bounce the ball of paddle
@@ -138,18 +138,18 @@ function outOfBounds(xPosition) {
 
 function movePlayer(e) {
   if (gameOver) {
-    if (e.code == 'Space') {
+    if (e.code == 'ArrowUp' || e.code=='KeyW') {
       resetGame()
     }
   }
 
-  if (e.code == 'ArrowLeft') {
+  if (e.code == 'ArrowLeft'||e.code=='KeyA') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
     if (!outOfBounds(nextPlayerX)) {
       player.x = nextPlayerX
     }
-  } else if (e.code == 'ArrowRight') {
+  } else if (e.code == 'ArrowRight'|| e.code=='KeyD') {
     // player.x += player.velocityX
     let nextPlayerX = player.x + player.velocityX
     if (!outOfBounds(nextPlayerX)) {
@@ -157,6 +157,12 @@ function movePlayer(e) {
     }
   }
 }
+window.addEventListener('keydown', (e)=> {
+  if (e.code === 'Space') {
+      e.preventDefault();
+  }
+});
+
 function detectCollision(a, b) {
   return (
     a.x < b.x + b.width &&
