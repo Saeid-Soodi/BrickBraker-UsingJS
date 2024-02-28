@@ -54,6 +54,7 @@ let gameOver = false
 //   blockRow = Math.min(blockRow + 1, blockMaxRow)
 //   createBlocks()
 // }
+
 // Functions
 window.onload = function () {
   confirm('Ready to play?')
@@ -210,7 +211,6 @@ function createBlocks() {
 // Reset Function
 function resetGame() {
   gameOver = false
-
   player = {
     x: boardWidth / 2 - playerWidth / 2,
     y: boardHeight - playerHeight - 5,
@@ -226,9 +226,9 @@ function resetGame() {
     velocityX: BallVelocityX,
     vlocityY: BallVelocityY,
   }
-
   blockArray = []
   score = 0
   blockRow = 3
   createBlocks()
 }
+
