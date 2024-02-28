@@ -8,29 +8,34 @@
   </head>
   <body class="bg-slate-900">
     <nav
-      class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
-    >
-      <button class="text-white font-semibold hover:text-red-500">Login</button>
-      <ul class="flex justify-center items-center gap-24">
-        <li class="hover:text-red-500 text-white font-semibold">
-          <a href="../public/index.html">Home</a>
-        </li>
-        <li class="hover:text-red-500 text-white font-semibold">
-          <a href="../public/Game.html">Game</a>
-        </li>
-        <li class="hover:text-red-500 text-white font-semibold">
-          <a href="../public/About.html">About Game</a>
-        </li>
-        <li class="hover:text-red-500 text-white font-semibold">
-          <a href="../public/Contact.html">Contact Me</a>
-        </li>
-      </ul>
-      <div>
-        <a href="#"
-          ><img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker"
-        /></a>
-      </div>
-    </nav>
+        class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
+      >
+        <button class="navbarLoginBtn text-red-500 font-semibold hover:text-white">
+          Login
+        </button>
+        <ul class="flex justify-center items-center gap-24">
+          <li class="hover:text-red-500 text-white font-semibold">
+            <a href="#">Home</a>
+          </li>
+          <li class="game hover:text-red-500 text-white font-semibold">
+            <a href="../public/Game.html">Game</a>
+          </li>
+          <li class="hover:text-red-500 text-white font-semibold">
+            <a href="../public/About.html">About Game</a>
+          </li>
+          <li class="hover:text-red-500 text-white font-semibold">
+            <a href="../public/Contact.html">Contact Me</a>
+          </li>
+        </ul>
+        <div>
+          <a href="#"
+            ><img
+              class="w-32"
+              src="../images/BrickBraker.svg"
+              alt="BrickBraker"
+          /></a>
+        </div>
+      </nav>
     <canvas
       class="bg-gray-700 rounded-lg mx-auto mt-32 border-t-4 border-l-4 border-r-4 border-gray-500"
       id="board"
@@ -93,6 +98,7 @@
         </div>
       </div>
     </footer>
+    <script src="../public/dist/javascript/Nav.js"></script>
     <script src="../public/dist/javascript/Game.js"></script>
   </body>
 </html>
