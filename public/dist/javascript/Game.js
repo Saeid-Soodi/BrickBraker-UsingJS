@@ -57,21 +57,14 @@ let gameOver = false
 
 // Functions
 window.onload = function () {
-  confirm('Ready to play?')
-  board = document.getElementById('board')
-  board.height = boardHeight
-  board.width = boardWidth
-  //used for drawing on the board
-  context = board.getContext('2d')
-  //draw inital player
-  context.fillStyle = 'lightgreen'
-  context.fillRect(player.x, player.y, player.width, player.height)
+ let confirmed= confirm('Ready to play?')
+ if(confirmed){
+  startGame()
+ }else{
+  alert("You cancelled the game. Feel free to start whenever you're ready!");
 
-  requestAnimationFrame(update)
-  document.addEventListener('keydown', movePlayer)
+ }
 
-  //create blocks
-  createBlocks()
 }
 
 function update() {
@@ -233,5 +226,21 @@ function resetGame() {
   blockArray = []
   score = 0
   blockRow = 3
+  createBlocks()
+}
+function startGame(){
+  board = document.getElementById('board')
+  board.height = boardHeight
+  board.width = boardWidth
+  //used for drawing on the board
+  context = board.getContext('2d')
+  //draw inital player
+  context.fillStyle = 'lightgreen'
+  context.fillRect(player.x, player.y, player.width, player.height)
+
+  requestAnimationFrame(update)
+  document.addEventListener('keydown', movePlayer)
+
+  //create blocks
   createBlocks()
 }
