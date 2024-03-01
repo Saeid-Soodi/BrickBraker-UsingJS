@@ -1,5 +1,5 @@
 //Board
-let board1
+let board
 let boardWidth = 500
 let boardHeight = 500
 let context
@@ -102,6 +102,10 @@ function update() {
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
+    
+    let userData = JSON.parse(localStorage.getItem('userData'))
+    userData[0].uScore=score
+    localStorage.setItem('userData',JSON.stringify(userData))
     gameOver = true
   }
   //bounce the ball of paddle
@@ -139,18 +143,18 @@ function outOfBounds(xPosition) {
 
 function movePlayer(e) {
   if (gameOver) {
-    if (e.code == 'ArrowUp' || e.code=='KeyW') {
+    if (e.code == 'ArrowUp' || e.code == 'KeyW') {
       resetGame()
     }
   }
 
-  if (e.code == 'ArrowLeft'||e.code=='KeyA') {
+  if (e.code == 'ArrowLeft' || e.code == 'KeyA') {
     // player.x -= player.velocityX
     let nextPlayerX = player.x - player.velocityX
     if (!outOfBounds(nextPlayerX)) {
       player.x = nextPlayerX
     }
-  } else if (e.code == 'ArrowRight'|| e.code=='KeyD') {
+  } else if (e.code == 'ArrowRight' || e.code == 'KeyD') {
     // player.x += player.velocityX
     let nextPlayerX = player.x + player.velocityX
     if (!outOfBounds(nextPlayerX)) {
@@ -158,11 +162,11 @@ function movePlayer(e) {
     }
   }
 }
-window.addEventListener('keydown', (e)=> {
+window.addEventListener('keydown', (e) => {
   if (e.code === 'Space') {
-      e.preventDefault();
+    e.preventDefault()
   }
-});
+})
 
 function detectCollision(a, b) {
   return (
@@ -231,4 +235,3 @@ function resetGame() {
   blockRow = 3
   createBlocks()
 }
-
