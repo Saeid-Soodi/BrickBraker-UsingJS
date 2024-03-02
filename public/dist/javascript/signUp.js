@@ -9,8 +9,11 @@ signUpbtn.addEventListener('click', () => {
   let Password = document.querySelector('.password').value
   let confirmPassword = document.querySelector('.confirmPassword').value
 
-  let userData = []
-  userData.push({
+  // Retrieve existing user data from localStorage
+  let userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+  // Create new user object
+  let newUser = {
     uName: Name,
     uLastName: lastName,
     uUserName: userName,
@@ -19,8 +22,7 @@ signUpbtn.addEventListener('click', () => {
     uPassword: Password,
     uConfirmPassword: confirmPassword,
     uScore: 0,
-  })
-  let userJson = JSON.stringify(userData)
+  };
 
   if (
     Name == '' ||
@@ -30,48 +32,43 @@ signUpbtn.addEventListener('click', () => {
     phone == '' ||
     Password == '' ||
     confirmPassword == ''
-  )
-    alert(`you must fill all the inputs ${Name}!`)
+  ) {
+    alert(`You must fill in all the inputs, ${Name}!`);
+  } else if (Name.length < 3) {
+    alert("Name must be 6 characters or more");
+  } else if (lastName.length < 3) {
+    alert("Last Name must be 6 characters or more");
+  } else if (userName.length < 6) {
+    alert("User Name must be 6 characters or more");
+  } else if (!isValidEmail(email)) {
+    alert(`${Name}! Please enter a valid Email Address`);
+  } else if (Password.length < 8) {
+    alert(`${Name}! Password must be at least 8 characters`);
+  } else if (phone.length != 11) {
+    alert(`${Name}! Phone Number must be 11 characters`);
+  } else if (!isValidPhone(phone)) {
+    alert(`${Name}! Phone number is not valid.`);
+  } else if (Password !== confirmPassword) {
+    alert('Please check your password');
+  } else {
+    // Add the new user to the array
+    userData.push(newUser);
 
-    else if(Name.length <3){
-      alert("Name must be 6 char or more")
-     }
-     else if(lastName.length <3){
-      alert("Last Name must be 6 char or more")
-     }
-     else if(userName.length <6){
-      alert("User Name must be 6 char or more")
-     }
-  else if (!isValidEmail(email)) {
-    alert(`${Name}! please enter a valid Email Address`)
-  } 
-  else if(Password.length<8){
-    alert(`${Name}! Password must be at least 8 char`)
+    // Save the updated user data back to localStorage
+    localStorage.setItem('userData', JSON.stringify(userData));
+    localStorage.setItem('userLoggedIn', Name);
+    alert(`Dear ${Name}, your registration is completed.`);
+    window.location.href = "./SignIn.html";
   }
-  else if(phone.length!=11){
-    alert(`${Name}! Phone Number must be 11 char`)
-  }
-  else if(!isValidPhone(phone)){
-    alert(`${Name}! phone number is not valid.`)
-  }
-  else if(Password!==confirmPassword){
-    alert('please check your password')
-  }
-  else {
-    localStorage.setItem('userData', userJson)
-    localStorage.setItem('userLoggedIn', Name)
-    alert(`Dear ${Name} your regestration completed`)
-    window.location.href="./SignIn.html"
-  }
-})
+});
 
-// functions
+// Functions
 function isValidEmail(Email) {
-  const EmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return EmailRegex.test(Email)
+  const EmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return EmailRegex.test(Email);
 }
 
-function isValidPhone(Phone){
-  const PhoneRegex= /^09\d{9}$/
-  return PhoneRegex.test(Phone)
+function isValidPhone(Phone) {
+  const PhoneRegex = /^09\d{9}$/;
+  return PhoneRegex.test(Phone);
 }
