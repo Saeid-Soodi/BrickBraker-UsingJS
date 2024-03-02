@@ -99,6 +99,13 @@ function update() {
     let userData = JSON.parse(localStorage.getItem('userData'))
     userData[0].uScore=score
     localStorage.setItem('userData',JSON.stringify(userData))
+    let localUserName = userData[0].uUserName
+    let userName = document.querySelector('.userName')
+    let scoreTable = document.querySelector('.score')
+    userName.innerHTML =localUserName
+    scoreTable.innerHTML=score
+    let item= document.querySelector('.item')
+    item.classList.add('p-1')
     gameOver = true
   }
   //bounce the ball of paddle
