@@ -76,7 +76,7 @@ function update() {
   context.fillStyle = 'lightgreen'
   context.fillRect(player.x, player.y, player.width, player.height)
 
-  context.fillStyle = 'black'
+  context.fillStyle = 'red'
   Ball.x += Ball.velocityX
   Ball.y += Ball.vlocityY
   context.fillRect(Ball.x, Ball.y, Ball.width, Ball.height)
@@ -91,7 +91,7 @@ function update() {
   } else if (Ball.y + Ball.height >= boardHeight) {
     //if ball touches bottom of canvas
     //Game Over
-    context.fillStyle = 'black'
+    context.fillStyle = 'white'
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
