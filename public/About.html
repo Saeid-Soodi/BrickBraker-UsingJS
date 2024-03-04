@@ -1,14 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="../images/favIcon.png" />
-    <link rel="stylesheet" href="../public/dist/styles/about.css">
+    <link rel="stylesheet" href="../public/dist/styles/about.css" />
     <title>About Game</title>
-</head>
-<body>
-    
-    
-</body>
+  </head>
+  <body class="bg-slate-900">
+    <nav
+      class="bg-slate-800 sticky top-0 flex justify-center gap-52 items-center p-1 rounded-b-3xl"
+    >
+      <button
+        class="navbarLoginBtn text-red-500 font-semibold hover:text-white"
+      >
+        Login
+      </button>
+      <ul class="flex justify-center items-center gap-24">
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/index.html">Home</a>
+        </li>
+        <li class="game hover:text-red-500 text-white font-semibold">
+          <a href="../public/Game.html">Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/About.html">About Game</a>
+        </li>
+        <li class="hover:text-red-500 text-white font-semibold">
+          <a href="../public/Contact.html">Contact Me</a>
+        </li>
+      </ul>
+      <div>
+        <a href="#"
+          ><img class="w-32" src="../images/BrickBraker.svg" alt="BrickBraker"
+        /></a>
+      </div>
+    </nav>
+    <main>
+      <section
+        class="about p-4 w-[750px] mx-auto flex items-center flex-col mt-40 justify-center"
+      >
+        <h1 class="text-white text-4xl font-semibold">
+          What is Brick Breaker ?
+        </h1>
+        <p
+          class="about w-[700px] p-4 bg-slate-600 rounded-lg mt-10 font-medium text-center text-lg text-gray-800"
+        >
+          <span class="text-white"> Brick Breaker</span> is a classic arcade
+          game that brings back nostalgia while offering a modern twist. The
+          objective of the game is simple yet addictive: break all the bricks
+          using a paddle and a ball. Each brick you break earns you points, with
+          each brick worth 100 points.
+        </p>
+        <h2 class="text-white text-3xl font-semibold mt-10">
+          History of the Game
+        </h2>
+        <p
+          class="history p-4 w-[700px] bg-slate-600 rounded-lg mt-10 text-center text-lg font-medium text-gray-800"
+        >
+          <span class="text-white">Brick Breaker</span> traces its roots back to
+          the arcade era of the late 1970s and early 1980s. It gained immense
+          popularity with the release of various versions on early home gaming
+          consoles. Over the years, it has evolved and adapted to different
+          platforms, retaining its appeal to players of all ages.
+        </p>
+        <h2 class="text-white text-3xl font-semibold mt-10">How to Play</h2>
+        <p
+          class="howToPlay p-4 w-[700px] bg-slate-600 rounded-lg mt-10 text-center text-lg font-medium text-gray-800"
+        >
+          The gameplay is straightforward. You control a paddle that moves
+          horizontally at the bottom of the screen. Using the paddle, you
+          deflect a bouncing ball towards rows of bricks arranged at the top of
+          the screen. Your goal is to break all the bricks by bouncing the ball
+          off the paddle without letting it fall below. If the ball falls below
+          the paddle, you lose a life. However, you can earn extra lives and
+          power-ups by breaking certain bricks or achieving specific milestones.
+        </p>
+      </section>
+    </main>
+
+    <footer
+      class="bg-slate-800 w-full h-80 mt-72 rounded-t-3xl flex flex-col items-center"
+    >
+      <h2
+        class="text-center text-3xl text-white font-bold mt-2 hover:text-red-600 hover:cursor-pointer"
+      >
+        How to reach me?
+      </h2>
+      <div class="icons flex gap-10 justify-center mt-10">
+        <a href="https://www.instagram.com/saeedsi_tech">
+          <img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/instagram.svg"
+            alt=""
+        /></a>
+        <a href="https://telegram/saeedsi_tech"
+          ><img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/telegram.svg"
+            alt=""
+        /></a>
+        <a href="https://twitter.com/Saeid__Si"
+          ><img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/x.svg"
+            alt=""
+        /></a>
+        <a href="https://discord.gg/u28fFRT9"
+          ><img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/discord.svg"
+            alt=""
+        /></a>
+        <a href="https://bsky.app/profile/saeedsoodi.bsky.social"
+          ><img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/bluesky.svg"
+            alt=""
+        /></a>
+        <a href="https://www.facebook.com/saeid.soodii/">
+          <img
+            class="w-10 transition ease-in-out delay-250 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer"
+            src="../images/facebook.svg"
+            alt=""
+        /></a>
+      </div>
+      <div class="contact flex flex-col gap-5 mt-10">
+        <div class="email text-white font-bold text-xl">
+          <p>Email:</p>
+          <p class="hover:text-red-600 cursor-pointer">saeid.soodi@gmail.com</p>
+        </div>
+        <div class="phone text-white font-bold text-xl">
+          <p>Phone:</p>
+          <p class="hover:text-red-600 cursor-pointer">+989102422656</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
