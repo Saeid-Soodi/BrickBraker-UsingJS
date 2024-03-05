@@ -95,17 +95,7 @@ function update() {
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
-    
-    let userData = JSON.parse(localStorage.getItem('userData'))
-    userData[0].uScore=score
-    localStorage.setItem('userData',JSON.stringify(userData))
-    let localUserName = userData[0].uUserName
-    let userName = document.querySelector('.userName')
-    let scoreTable = document.querySelector('.score')
-    userName.innerHTML =localUserName
-    scoreTable.innerHTML=score
-    let item= document.querySelector('.item')
-    item.classList.add('p-1')
+  scoring()
     gameOver = true
   }
   //bounce the ball of paddle
@@ -250,4 +240,18 @@ function startGame(){
 
   //create blocks
   createBlocks()
+}
+
+function scoring()
+{
+  let userLoggedIn =localStorage.getItem('userLoggedIn')
+  let userData = JSON.parse(localStorage.getItem('userData'))
+  localStorage.setItem('userData',JSON.stringify(userData))
+  let localUserName = userData[0].uUserName
+  let userName = document.querySelector('.userName')
+  let scoreTable = document.querySelector('.score')
+  userName.innerHTML =localUserName
+  scoreTable.innerHTML=score
+  let item= document.querySelector('.item')
+  item.classList.add('p-1')
 }
