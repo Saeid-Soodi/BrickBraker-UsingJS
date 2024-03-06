@@ -247,7 +247,7 @@ function scoring()
   let userLoggedIn =localStorage.getItem('userLoggedIn')
   let userData = JSON.parse(localStorage.getItem('userData'))
   localStorage.setItem('userData',JSON.stringify(userData))
-  let localUserName = userData[0].uUserName
+  let localUserName = userData.find((user=>user.uName===userLoggedIn))?userLoggedIn:''
   let userName = document.querySelector('.userName')
   let scoreTable = document.querySelector('.score')
   userName.innerHTML =localUserName
