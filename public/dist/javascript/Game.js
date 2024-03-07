@@ -1,3 +1,5 @@
+let userLoggedIn = localStorage.getItem('userLoggedIn')
+let userData = JSON.parse(localStorage.getItem('userData'))
 //Board
 let board
 let boardWidth = 500
@@ -57,14 +59,12 @@ let gameOver = false
 
 // Functions
 window.onload = function () {
- let confirmed= confirm('Ready to play?')
- if(confirmed){
-  startGame()
- }else{
-  alert("You cancelled the game. Feel free to start whenever you're ready!");
-
- }
-
+  let confirmed = confirm('Ready to play?')
+  if (confirmed) {
+    startGame()
+  } else {
+    alert("You cancelled the game. Feel free to start whenever you're ready!")
+  }
 }
 
 function update() {
@@ -95,7 +95,8 @@ function update() {
     context.font = '20px sans-serif'
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
-  scoring()
+    scoring()
+    // Ranking()
     gameOver = true
   }
   //bounce the ball of paddle
@@ -225,7 +226,7 @@ function resetGame() {
   blockRow = 3
   createBlocks()
 }
-function startGame(){
+function startGame() {
   board = document.getElementById('board')
   board.height = boardHeight
   board.width = boardWidth
@@ -242,16 +243,29 @@ function startGame(){
   createBlocks()
 }
 
-function scoring()
-{
-  let userLoggedIn =localStorage.getItem('userLoggedIn')
-  let userData = JSON.parse(localStorage.getItem('userData'))
-  localStorage.setItem('userData',JSON.stringify(userData))
-  let localUserName = userData.find((user=>user.uName===userLoggedIn))?userLoggedIn:''
-  let userName = document.querySelector('.userName')
-  let scoreTable = document.querySelector('.score')
-  userName.innerHTML =localUserName
-  scoreTable.innerHTML=score
-  let item= document.querySelector('.item')
-  item.classList.add('p-1')
+function scoring() {
+  const localUserName = userData.find((user) => user.uName === userLoggedIn)
+    ? userLoggedIn 
+    : ''
+    localUserName.uScore=score
+    localStorage.setItem('userData',JSON.stringify(userData))
+    let userName = document.querySelector('.userName')
+    let scoreTable = document.querySelector('.score')
+    userName.innerHTML =localUserName
+    scoreTable.innerHTML=score
+   
+    let item= document.querySelector('.item')
+    item.classList.add('p-1')
+}
+
+function Ranking() {
+  for (let i = 0; i <= userData.length; i++) {
+    let localUserName = userData[i].uName
+    let userName = document.querySelector('.userName')
+    let scoreTable = document.querySelector('.score')
+    userName.innerHTML = localUserName
+    scoreTable.innerHTML = userData[i].uScore
+    let item = document.querySelector('.item')
+    item.classList.add('p-1')
+  }
 }
