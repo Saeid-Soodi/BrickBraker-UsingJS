@@ -96,7 +96,6 @@ function update() {
     context.fillText(`Score:${score}`, 200, 350)
     context.fillText(" Game Over: Press 'Arrow Up' to Restart", 80, 400)
     scoring()
-    // Ranking()
     gameOver = true
   }
   //bounce the ball of paddle
@@ -136,6 +135,7 @@ function movePlayer(e) {
   if (gameOver) {
     if (e.code == 'ArrowUp' || e.code == 'KeyW') {
       resetGame()
+      Ranking(userData)
     }
   }
 
@@ -244,31 +244,67 @@ function startGame() {
 }
 
 function scoring() {
-  const currentUser = userData.find(user => user.uName === userLoggedIn);
+  const currentUser = userData.find((user) => user.uName === userLoggedIn)
 
   if (currentUser) {
-    currentUser.uScore = score;
-    localStorage.setItem('userData', JSON.stringify(userData));
+    currentUser.uScore = score
+    localStorage.setItem('userData', JSON.stringify(userData))
   }
-  
-  let userName = document.querySelector('.userName');
-  let scoreTable = document.querySelector('.score');
-  
-  userName.innerHTML = userLoggedIn;
-  scoreTable.innerHTML = score;
-  
-  let item = document.querySelector('.item');
-  item.classList.add('p-1');
 }
 
-// function Ranking() {
-//   for (let i = 0; i <= userData.length; i++) {
-//     let localUserName = userData[i].uName
-//     let userName = document.querySelector('.userName')
-//     let scoreTable = document.querySelector('.score')
-//     userName.innerHTML = localUserName
-//     scoreTable.innerHTML = userData[i].uScore
-//     let item = document.querySelector('.item')
-//     item.classList.add('p-1')
-//   }
-// }
+function Ranking(userData) {
+  let userListContainer = document.querySelector('.highscores')
+
+  // Clear the existing content in userListContainer
+  userListContainer.innerHTML = ''
+  userListContainer.classList.add('mt-20')
+  const header = document.createElement('h1')
+  header.classList.add('text-white','font-bold', 'text-4xl','hover:text-red-600', 'hover:cursor-pointer')
+  header.textContent='Highscores'
+  userListContainer.appendChild(header)
+  const titles = document.createElement('div')
+  titles.classList.add('title', 'flex', 'text-white', 'text-2xl' ,'gap-96', 'mt-5' ,'border-t-2' ,'font-semibold', 'hover:text-red-600', 'hover:cursor-pointer')
+  userListContainer.appendChild(titles)
+  const p1 = document.createElement('p')
+  p1.classList.add('left')
+  p1.innerHTML='Username'
+  titles.appendChild(p1)
+  const p2 = document.createElement('p')
+  p2.classList.add('right')
+  p2.innerHTML='Score'
+  titles.appendChild(p2)
+  
+  // Loop through userData and create elements for each user
+  for (let i = 0; i < userData.length; i++) {
+    let user = userData[i]
+
+    // Create elements for username and score
+    let item = document.createElement('div')
+    item.classList.add(
+      'item',
+      'flex',
+      'justify-between',
+      'text-white',
+      'text-2xl',
+      'mt-5',
+      'bg-slate-500',
+      'rounded-lg',
+      'font-semibold',
+      'hover:text-red-600',
+      'hover:cursor-pointer'
+      ,'p-1'
+    )
+
+    let userNameContainer = document.createElement('p')
+    userNameContainer.classList.add('userName')
+    userNameContainer.textContent = user.uName
+    item.appendChild(userNameContainer)
+
+    let userScoreContainer = document.createElement('p')
+    userScoreContainer.classList.add('score') 
+    userScoreContainer.textContent = user.uScore
+    item.appendChild(userScoreContainer)
+
+    userListContainer.appendChild(item)
+  }
+}
