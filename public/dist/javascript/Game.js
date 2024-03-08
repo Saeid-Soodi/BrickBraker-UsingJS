@@ -244,28 +244,31 @@ function startGame() {
 }
 
 function scoring() {
-  const localUserName = userData.find((user) => user.uName === userLoggedIn)
-    ? userLoggedIn 
-    : ''
-    localUserName.uScore=score
-    localStorage.setItem('userData',JSON.stringify(userData))
-    let userName = document.querySelector('.userName')
-    let scoreTable = document.querySelector('.score')
-    userName.innerHTML =localUserName
-    scoreTable.innerHTML=score
-   
-    let item= document.querySelector('.item')
-    item.classList.add('p-1')
+  const currentUser = userData.find(user => user.uName === userLoggedIn);
+
+  if (currentUser) {
+    currentUser.uScore = score;
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+  
+  let userName = document.querySelector('.userName');
+  let scoreTable = document.querySelector('.score');
+  
+  userName.innerHTML = userLoggedIn;
+  scoreTable.innerHTML = score;
+  
+  let item = document.querySelector('.item');
+  item.classList.add('p-1');
 }
 
-function Ranking() {
-  for (let i = 0; i <= userData.length; i++) {
-    let localUserName = userData[i].uName
-    let userName = document.querySelector('.userName')
-    let scoreTable = document.querySelector('.score')
-    userName.innerHTML = localUserName
-    scoreTable.innerHTML = userData[i].uScore
-    let item = document.querySelector('.item')
-    item.classList.add('p-1')
-  }
-}
+// function Ranking() {
+//   for (let i = 0; i <= userData.length; i++) {
+//     let localUserName = userData[i].uName
+//     let userName = document.querySelector('.userName')
+//     let scoreTable = document.querySelector('.score')
+//     userName.innerHTML = localUserName
+//     scoreTable.innerHTML = userData[i].uScore
+//     let item = document.querySelector('.item')
+//     item.classList.add('p-1')
+//   }
+// }
